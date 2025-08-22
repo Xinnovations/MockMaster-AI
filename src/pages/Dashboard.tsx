@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import { 
   ArrowLeft, 
   Trophy, 
@@ -13,11 +14,37 @@ import {
   AlertCircle,
   Star,
   BarChart3,
-  Calendar
+  Calendar,
+  Play,
+  PieChart,
+  Activity
 } from "lucide-react";
+import {
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+  ChartLegend,
+  ChartLegendContent,
+} from "@/components/ui/chart";
+import {
+  PieChart as RechartsPieChart,
+  Pie,
+  Cell,
+  BarChart as RechartsBarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  LineChart,
+  Line,
+  ResponsiveContainer,
+  Area,
+  AreaChart
+} from "recharts";
 
 const Dashboard = () => {
   const navigate = useNavigate();
+  const [isDemoClicked, setIsDemoClicked] = useState(false);
 
   // Mock data - in real app this would come from API
   const interviewResults = {
@@ -47,6 +74,24 @@ const Dashboard = () => {
       { date: "2024-01-15", score: 85, category: "CS/IT", duration: "42 min" },
       { date: "2024-01-12", score: 78, category: "CS/IT", duration: "38 min" },
       { date: "2024-01-08", score: 82, category: "System Design", duration: "45 min" },
+    ],
+    skillDistribution: [
+      { skill: "Technical", value: 88, color: "hsl(var(--primary))" },
+      { skill: "Communication", value: 78, color: "hsl(var(--secondary))" },
+      { skill: "Problem Solving", value: 92, color: "hsl(var(--accent))" },
+      { skill: "Code Quality", value: 85, color: "hsl(var(--muted))" }
+    ],
+    progressTrend: [
+      { month: "Oct", score: 72 },
+      { month: "Nov", score: 78 },
+      { month: "Dec", score: 82 },
+      { month: "Jan", score: 85 }
+    ],
+    timeAnalysis: [
+      { category: "Data Structures", timeSpent: 25, accuracy: 90 },
+      { category: "Algorithms", timeSpent: 30, accuracy: 85 },
+      { category: "System Design", timeSpent: 20, accuracy: 75 },
+      { category: "Coding Practice", timeSpent: 35, accuracy: 88 }
     ]
   };
 
@@ -254,10 +299,138 @@ const Dashboard = () => {
           </CardContent>
         </Card>
 
+        {/* Advanced Analytics */}
+        <div className="grid lg:grid-cols-2 gap-8 mb-8">
+          {/* Skill Distribution Pie Chart */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <PieChart className="h-5 w-5" />
+                Skill Distribution Analysis
+              </CardTitle>
+              <CardDescription>
+                Breakdown of your performance across different skill areas
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ChartContainer config={{
+                technical: { label: "Technical", color: "hsl(var(--primary))" },
+                communication: { label: "Communication", color: "hsl(var(--secondary))" },
+                problemSolving: { label: "Problem Solving", color: "hsl(var(--accent))" },
+                codeQuality: { label: "Code Quality", color: "hsl(var(--muted))" }
+              }} className="h-[300px]">
+                <ResponsiveContainer width="100%" height="100%">
+                  <RechartsPieChart>
+                    <ChartTooltip content={<ChartTooltipContent />} />
+                    <Pie
+                      data={interviewResults.skillDistribution}
+                      dataKey="value"
+                      nameKey="skill"
+                      cx="50%"
+                      cy="50%"
+                      outerRadius={80}
+                      label={({skill, value}) => `${skill}: ${value}%`}
+                    >
+                      {interviewResults.skillDistribution.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={entry.color} />
+                      ))}
+                    </Pie>
+                  </RechartsPieChart>
+                </ResponsiveContainer>
+              </ChartContainer>
+            </CardContent>
+          </Card>
+
+          {/* Progress Trend */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Activity className="h-5 w-5" />
+                Progress Trend
+              </CardTitle>
+              <CardDescription>
+                Your performance improvement over the last 4 months
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ChartContainer config={{
+                score: { label: "Score", color: "hsl(var(--primary))" }
+              }} className="h-[300px]">
+                <ResponsiveContainer width="100%" height="100%">
+                  <AreaChart data={interviewResults.progressTrend}>
+                    <defs>
+                      <linearGradient id="scoreGradient" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.8}/>
+                        <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0.1}/>
+                      </linearGradient>
+                    </defs>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="month" />
+                    <YAxis domain={[60, 100]} />
+                    <ChartTooltip content={<ChartTooltipContent />} />
+                    <Area 
+                      type="monotone" 
+                      dataKey="score" 
+                      stroke="hsl(var(--primary))" 
+                      fillOpacity={1} 
+                      fill="url(#scoreGradient)" 
+                    />
+                  </AreaChart>
+                </ResponsiveContainer>
+              </ChartContainer>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Time Analysis */}
+        <Card className="mb-8">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <BarChart3 className="h-5 w-5" />
+              Time vs Accuracy Analysis
+            </CardTitle>
+            <CardDescription>
+              Time spent in each category vs accuracy achieved
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <ChartContainer config={{
+              timeSpent: { label: "Time Spent (min)", color: "hsl(var(--primary))" },
+              accuracy: { label: "Accuracy (%)", color: "hsl(var(--secondary))" }
+            }} className="h-[400px]">
+              <ResponsiveContainer width="100%" height="100%">
+                <RechartsBarChart data={interviewResults.timeAnalysis} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="category" />
+                  <YAxis yAxisId="left" orientation="left" />
+                  <YAxis yAxisId="right" orientation="right" />
+                  <ChartTooltip content={<ChartTooltipContent />} />
+                  <ChartLegend content={<ChartLegendContent />} />
+                  <Bar yAxisId="left" dataKey="timeSpent" fill="hsl(var(--primary))" name="Time Spent (min)" />
+                  <Bar yAxisId="right" dataKey="accuracy" fill="hsl(var(--secondary))" name="Accuracy (%)" />
+                </RechartsBarChart>
+              </ResponsiveContainer>
+            </ChartContainer>
+          </CardContent>
+        </Card>
+
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button size="lg" variant="hero" onClick={() => navigate('/categories')}>
             Take Another Interview
+          </Button>
+          <Button 
+            size="lg" 
+            variant={isDemoClicked ? "default" : "ghost"} 
+            className={`transition-all duration-300 ${
+              isDemoClicked 
+                ? "bg-white text-black hover:bg-white/90" 
+                : "bg-transparent border-2 border-white/30 text-white hover:border-white/50"
+            }`}
+            onClick={() => setIsDemoClicked(true)}
+          >
+            <Play className="mr-2 h-4 w-4" />
+            Watch Demo
           </Button>
           <Button size="lg" variant="outline">
             Download Detailed Report
