@@ -71,3 +71,33 @@ graph TB
     H --> G
     I --> G
     J --> G
+graph LR
+    A[Mock Master AI] --> B[Personalized & Adaptive Tests]
+    A --> C[Bias-Free AI Evaluation]
+    A --> D[Soft + Technical Skills Integration]
+    A --> E[Scalable to Enterprise Level]
+
+    X[Traditional Platforms] --> Y[Generic Assessments]
+    X --> Z[No Feedback]
+    X --> W[Only Coding Practice]graph TD
+    A[Resume Parsing (spaCy)] --> B[Gemini API: Test Generation]
+    B --> C[Flask Backend: Test Delivery]
+    C --> D[Candidate Attempts]
+    D --> E[Auto-Scoring + Feedback]
+    E --> F[Recruiter Dashboard & Analytics]# 1. Clone repository
+git clone https://github.com/innovatex/mock-master-ai.git
+cd mock-master-ai
+
+# 2. Create virtual environment
+python -m venv venv
+source venv/bin/activate   # (Linux/Mac)
+venv\Scripts\activate      # (Windows)
+
+# 3. Install dependencies
+pip install -r requirements.txt
+
+# 4. Run Flask backend
+python app.py
+
+# 5. Open in browser
+http://127.0.0.1:5000/
