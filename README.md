@@ -1,73 +1,214 @@
-# Welcome to your Lovable project
+# 🤖 Mock Master AI: Next-Gen Interview Preparation & Recruitment Platform
 
-## Project info
+<div align="center">
 
-**URL**: https://lovable.dev/projects/d1aebe63-bc2a-4869-970f-349d8c01ca5b
+<img src="static/mockmasterai-logo.jpg" alt="Mock Master AI Logo" height="170">
 
-## How can I edit this code?
+**Team InnovateX**
 
-There are several ways of editing your application.
+**Revolutionizing Candidate Preparation & Recruiter Screening with AI**
 
-**Use Lovable**
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/Backend-Flask-red.svg)](https://flask.palletsprojects.com/)
+[![AI](https://img.shields.io/badge/AI-Gemini%20%7C%20spaCy%20%7C%20NLTK-green.svg)](https://deepmind.google/technologies/gemini/)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/d1aebe63-bc2a-4869-970f-349d8c01ca5b) and start prompting.
+**🏆 Built for Hackathons & Scalable to Enterprises**
 
-Changes made via Lovable will be committed automatically to this repo.
+</div>
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🚨 The Problem: Broken Interview Ecosystem
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### 🎓 Candidate Struggles
+- 73% face **interview anxiety** (NACE, 2023)  
+- 60% drop out due to **irrelevant or generic assessments**  
+- No personalized feedback or adaptive preparation  
+- Coding prep platforms = only practice, not holistic interviews  
 
-Follow these steps:
+### 💼 Recruiter Pain Points
+- 80% HRs say **screening takes too long** (SHRM, 2024)  
+- Manual test creation = **expensive & inefficient**  
+- High **bias risk** in evaluations  
+- Mismatch between **resume skills vs test difficulty**  
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 💡 Mock Master AI: Our Solution
 
-# Step 3: Install the necessary dependencies.
-npm i
+✅ **AI-driven platform that:**  
+- Parses resumes → understands candidate skills  
+- Generates **personalized coding + interview questions** (via Gemini)  
+- Adapts difficulty **dynamically during test**  
+- Simulates **real interviews** (technical + behavioral)  
+- Provides **instant analytics & improvement roadmap**  
+- Bias-free **scalable evaluation for recruiters**  
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+---
 
-**Edit a file directly in GitHub**
+## 🏗️ System Overview
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```mermaid
+graph TB
+    subgraph "🎓 Candidate Journey"
+        A[Resume Upload] --> B[Skill Extraction via NLP]
+        B --> C[Personalized Test Generation]
+        C --> D[Mock Coding Interviews<br>Python, Java, C++]
+        C --> E[Soft Skills & Behavioral Q&A]
+        D --> F[Feedback: Strengths & Weaknesses]
+        E --> F
+    end
 
-**Use GitHub Codespaces**
+    subgraph "💼 Recruiter Workflow"
+        G[Recruiter Dashboard]
+        H[Role-Specific Assessment Generator]
+        I[Bias-Free Evaluation Engine]
+        J[Analytics & Reporting Tools]
+    end
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+    F --> G
+    H --> G
+    I --> G
+    J --> G
+⚙️ Technical Architecture
 
-## What technologies are used for this project?
+🔨 Tech Stack
 
-This project is built with:
+Frontend → HTML, CSS, JavaScript (React optional)
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Backend → Python Flask + REST APIs
 
-## How can I deploy this project?
+AI/ML → Gemini (DeepMind), spaCy, NLTK
 
-Simply open [Lovable](https://lovable.dev/projects/d1aebe63-bc2a-4869-970f-349d8c01ca5b) and click on Share -> Publish.
+Database → PostgreSQL / MongoDB
 
-## Can I connect a custom domain to my Lovable project?
+DevOps → Docker, Kubernetes (future scaling)
 
-Yes, you can!
+Security → OAuth login, input validation, anti-cheating (future)
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+🔄 Workflow
+
+1. Resume parsed with NLP (spaCy, NLTK) → extract skills & experience
+
+
+2. Gemini API generates adaptive coding + behavioral questions
+
+
+3. Flask backend delivers test via REST APIs
+
+
+4. Candidate attempts → auto-scored + analytics generated
+
+
+5. Recruiter dashboard shows results, insights, and improvement roadmap
+
+
+
+
+---
+
+🚀 Hackathon MVP (Current Build)
+
+✅ Resume parsing with NLP
+✅ Gemini integration → coding test generation
+✅ Flask backend → test delivery & scoring
+✅ Web UI prototype (HTML, CSS, JS)
+
+Why Feasible?
+
+Only 5–6 APIs needed for full workflow
+
+Modular → can scale to enterprise
+
+Student-team buildable within hackathon timeframe
+
+Clear progression → MVP → SaaS Platform
+
+
+
+---
+
+📊 Application Screenshots
+
+> Place all images in the static/ folder of your repo.
+
+
+
+Dashboard Mockup
+
+
+Candidate Feedback Report
+
+
+Recruiter Analytics
+
+
+
+
+---
+
+🎯 Target Audience
+
+1. Students / Job Seekers
+
+Practice real interview scenarios with instant AI feedback
+
+
+2. Recruiters / HR Teams
+
+Faster, bias-free, skill-aligned screening
+
+
+3. Hackathons & Universities
+
+Training + evaluation at scale, with minimal manual effort
+
+
+
+---
+
+🚀 Quick Start Guide
+
+Prerequisites
+
+Node.js 18+, Python 3.9+, PostgreSQL/MongoDB
+
+Installation
+
+# Clone repository
+git clone https://github.com/innovatex/mockmaster-ai.git
+cd mockmaster-ai
+
+# Backend setup
+pip install -r requirements.txt
+flask run
+
+# Frontend (basic HTML/JS)
+open index.html
+
+
+---
+
+🤝 Team InnovateX
+
+👩‍💻 Team Leader – Lasya K. (Full-Stack + AI Integration)
+👨‍💻 Backend Developer – Prathamesh (Flask, REST APIs)
+👩‍🔬 NLP Engineer – [Teammate] (Resume parsing, skill extraction)
+👨‍🎨 Frontend Developer – [Teammate] (UI/UX, dashboard)
+
+
+---
+
+📄 License
+
+MIT License - See LICENSE file for details.
+
+
+---
+
+<div align="center">⭐ Star this repo if Mock Master AI inspires you!
+"Practice Smart. Get Hired Faster."
+
+</div>
