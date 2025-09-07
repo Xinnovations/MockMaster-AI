@@ -133,10 +133,10 @@ graph TB
 ## 🖼️ Screenshots
 
 ### 🔹 Candidate Dashboard
-![Candidate Dashboard](static/screenshots/candidate-dashboard.png)
+![Candidate Dashboard](./src/assets/dashboard1.png)
 
 ### 🔹 AI-Generated Coding Test
-![Coding Test](static/screenshots/coding-test.png)
+![Coding Test](./src/assets/dashboard2.png)
 
 
 🌍 Multi-language support
