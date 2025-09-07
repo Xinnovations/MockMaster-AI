@@ -133,7 +133,7 @@ graph TB
 ## 🖼️ Screenshots
 
 ### 🔹 Candidate Dashboard
-![Candidate Dashboard](./src/assets/dashboard1.png)
+![Candidate Dashboard](./src/assets/dashboard1 (2).png)
 
 ### 🔹 AI-Generated Coding Test
 ![Coding Test](./src/assets/dashboard2.png)
