@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="static/mockmasterai-logo.jpg" alt="Mock Master AI Logo" height="170">
+<img src="./src/assets/LOGO.jpg" alt="Mock Master AI Logo" height="170">
 
 **Team InnovateX**  
 👩‍💻 Project Leader: **Lasya Korandla**
